@@ -2,7 +2,7 @@ FROM python:3.11-slim
 
 # Install system dependencies for OpenCV and FFmpeg
 RUN apt-get update && apt-get install -y \
-    libgl1-mesa-glx \
+    libgl1 \
     libglib2.0-0 \
     ffmpeg \
     && rm -rf /var/lib/apt/lists/*
@@ -17,6 +17,9 @@ RUN pip install --no-cache-dir torch torchvision --index-url https://download.py
 
 # Copy and install other requirements
 COPY requirements.txt .
+# Swap opencv-python to opencv-python-headless for container stability
+RUN python -c "with open('requirements.txt', 'r') as f: t = f.read().replace('opencv-python', 'opencv-python-headless'); \
+with open('requirements.txt', 'w') as f: f.write(t)"
 RUN pip install --no-cache-dir -r requirements.txt
 
 # Copy all source files
