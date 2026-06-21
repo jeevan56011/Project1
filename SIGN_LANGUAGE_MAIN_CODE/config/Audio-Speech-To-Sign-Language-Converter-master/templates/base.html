@@ -1,0 +1,288 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    .center {
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      width: 50%;
+    }
+    #nav {
+      list-style-type: none;
+      margin-top: 0;
+      padding: 0;
+      overflow: hidden;
+      background-color: #ff9800;
+      box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+    }
+    h2 {
+      color: #ff9800;
+      text-align: center;
+      font-size: 28px;
+    }
+    .li {
+      float: left;
+    }
+    .li a {
+      display: block;
+      color: #212121;
+      font-size: 20px;
+      font-weight: bold;
+      padding: 14px 16px;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+    li a:hover {
+      background-color: #212121;
+      color: #ff9800;
+      font-weight: bold;
+      transform: scale(1.1);
+    }
+    .form-style button {
+      width: 89%;
+      height: 70%;
+      padding: 5%;
+      background: #ff9800;
+      border-bottom: 2px solid #212121;
+      border-top-style: none;
+      border-right-style: none;
+      border-left-style: none;
+      color: #212121;
+      font-weight: bold;
+      font-size: 28px;
+      font-family: "Times New Roman";
+      cursor: pointer;
+      transition: all 0.3s ease;
+      border-radius: 8px;
+    }
+    .form-style button:hover {
+      background-color: #212121;
+      color: #ff9800;
+      font-weight: bold;
+      transform: scale(1.05);
+    }
+    .split {
+      height: 100%;
+      width: 50%;
+      position: fixed;
+      z-index: 1;
+      top: 50;
+      overflow-x: hidden;
+      padding-top: 20px;
+    }
+    .left {
+      left: 15;
+      border-right: 1px solid #ff9800;
+    }
+    .right {
+      right: 0;
+      border-left: 1px solid #ff9800;
+    }
+    .mytext {
+      border: 1px solid #212121;
+      border-right: none;
+      padding: 4px;
+      margin: 0px;
+      float: left;
+      height: 32px;
+      overflow: hidden;
+      line-height: 16px;
+      width: 300px;
+      margin-left: 54px;
+      border-radius: 5px;
+    }
+    .mic {
+      border: 1px solid #212121;
+      background: #ff9800;
+      vertical-align: top;
+      padding: 0px;
+      margin: 0;
+      float: left;
+      height: 42px;
+      overflow: hidden;
+      width: 5em;
+      text-align: center;
+      line-height: 16px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    .mic:hover {
+      background-color: #212121;
+      color: #ff9800;
+    }
+    .submit {
+      border: 1px solid #212121;
+      height: 42px;
+      width: 160px;
+      text-align: center;
+      background-color: #ff9800;
+      color: #212121;
+      font-weight: bold;
+      font-size: 24px;
+      font-family: "Times New Roman";
+      vertical-align: top;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    .submit:hover {
+      background-color: #212121;
+      color: #ff9800;
+      font-weight: bold;
+      transform: scale(1.05);
+    }
+    .td {
+      color: #ff9800;
+      font-weight: bold;
+      font-size: 20px;
+    }
+    body {
+      background-color: #303030;
+      font-family: Arial, sans-serif;
+    }
+    .form-style {
+      font: 95% Arial, Helvetica, sans-serif;
+      max-width: 400px;
+      margin: 10px auto;
+      padding: 16px;
+      background: #212121;
+      border-radius: 10px;
+      box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+    }
+    .form-style h1, .form-style a {
+      padding: 20px 0;
+      font-size: 24px;
+      font-weight: bold;
+      font-family: "Times New Roman";
+      text-align: center;
+      margin: -16px -16px 16px -16px;
+      color: #ff9800;
+    }
+    .form-style input[type="text"],
+    .form-style input[type="password"],
+    .form-style input[type="date"],
+    .form-style input[type="datetime"],
+    .form-style input[type="email"],
+    .form-style input[type="number"],
+    .form-style input[type="search"],
+    .form-style input[type="time"],
+    .form-style input[type="url"],
+    .form-style textarea,
+    .form-style select {
+      outline: none;
+      box-sizing: border-box;
+      width: 100%;
+      background: #fff;
+      margin-bottom: 4%;
+      border: 1px solid #ccc;
+      padding: 3%;
+      color: #000080;
+      font: 95% Arial, Helvetica, sans-serif;
+      border-radius: 5px;
+    }
+    .form-style input:focus, .form-style textarea:focus, .form-style select:focus {
+      box-shadow: 0 0 5px #000080;
+      padding: 3%;
+      border: 1px solid #000080;
+    }
+    .site-form span, label {
+      color: #ff9800;
+    }
+    .errorlist {
+      color: red;
+      font-weight: bold;
+    }
+    body {
+  background-color: #303030;
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Navigation Bar */
+nav {
+  background-color: #ff9800;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-links li {
+  margin: 0 15px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #212121;
+  font-size: 18px;
+  font-weight: bold;
+  padding: 10px 15px;
+  transition: 0.3s ease;
+}
+
+.nav-links a:hover {
+  background-color: #212121;
+  color: #ff9800;
+  border-radius: 5px;
+}
+
+/* Responsive Navbar */
+@media (max-width: 768px) {
+  nav {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .nav-links {
+    flex-direction: column;
+    width: 100%;
+  }
+  
+  .nav-links li {
+    margin: 10px 0;
+  }
+}
+    </style>
+    
+
+<title>Homepage</title>
+</head>
+<div style="background-color:#404040;color:#feda6a;padding:10 10 1 10;border: 1px #feda6a groove;margin-bottom:0;">
+
+<h1 align=center>Audio To Sign Language Tool</h1>
+</div>
+<br>
+<body>
+<ul id="nav">
+  <li class="li"><a class="active" href="{% url 'home' %}">Home</a></li>
+  <li class="li"><a href="{% url 'animation' %}">Convertor</a></li>
+  {% if not user.is_authenticated %}
+  <li class="li"><a href="{% url 'signup' %}">Sign Up</a></li>
+  {% endif %}
+  {% if user.is_authenticated %}
+  <li class="li"><a href="{% url 'logout' %}">Log-Out</a></li>
+  {% else %}
+    <li class="li"><a href="{% url 'login' %}">Log-in</a></li>
+  {% endif %}
+  <li class="li"><a href="{% url 'contact' %}"></a></li>
+
+</ul>
+
+<div class="wrapper" >
+  {% block content %}
+  {% endblock %}
+</div>
+
+
+</body>
+</html>

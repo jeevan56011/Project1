@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign Up</title>
+  <style>
+      /* General Styles */
+      body {
+          font-family: Arial, sans-serif;
+          background: url('../static/images/pexels-pavel-danilyuk-8422142.jpg');
+          background-size: center;
+          background-position: center;
+          height: 100vh;
+          margin: 0;
+          color: white;
+          text-align: center;
+      }
+
+      /* Navbar Styles */
+      .navbar {
+          background: rgba(255, 255, 255, 0.8);
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          padding: 0px 10px;
+          position: fixed;
+          width: 100%;
+          top: 0;
+          left: 0;
+          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      }
+
+      .navbar .logo {
+          font-size: 22px;
+          font-weight: bold;
+          color: #d9534f;
+      }
+
+      .navbar ul {
+          list-style: none;
+          margin: 0;
+          padding: 0;
+          display: flex;
+      }
+
+      .navbar ul li {
+          margin: 0 15px;
+      }
+
+      .navbar ul li a {
+          text-decoration: none;
+          color: #333;
+          font-size: 16px;
+          font-weight: bold;
+          padding: 8px 12px;
+          transition: 0.3s;
+      }
+
+      .navbar ul li a:hover {
+          color: #d9534f;
+      }
+
+      /* Sign-Up Form Styles */
+      .form-container {
+          background: rgba(255, 255, 255, 0.9);
+          padding: 25px;
+          border-radius: 10px;
+          width: 40%;
+          margin: auto;
+          margin-top: 100px;
+          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      }
+
+      h2 {
+          color: #d9534f;
+          margin-bottom: 15px;
+      }
+      
+      h1 {
+        
+
+          color: #f3f1f1;
+          margin-top: 75px;
+      }
+
+      label {
+          font-weight: bold;
+          display: block;
+          margin-top: 10px;
+          color: black;
+          text-align: left;
+      }
+
+      input[type="text"], input[type="email"], input[type="password"] {
+          width: 95%;
+          padding: 10px;
+          margin-top: 5px;
+          border-radius: 5px;
+          border: 1px solid #ccc;
+          font-size: 16px;
+      }
+
+      /* Button Styles */
+      button {
+          background: #d9534f;
+          color: white;
+          padding: 12px 20px;
+          margin-top: 15px;
+          border: none;
+          border-radius: 5px;
+          cursor: pointer;
+          font-size: 16px;
+          width: 25%;
+      }
+
+      button:hover {
+          background: #c9302c;
+      }
+
+      p {
+          margin-top: 10px;
+      }
+
+      p a {
+          color: #d9534f;
+          text-decoration: none;
+          font-weight: bold;
+      }
+
+      p a:hover {
+          text-decoration: underline;
+      }
+
+      /* Flash Messages */
+      ul {
+          list-style-type: none;
+          padding: 0;
+      }
+
+      li {
+          font-size: 14px;
+          margin-bottom: 5px;
+      }
+
+      /* Responsive Design */
+      @media (max-width: 768px) {
+          .navbar {
+              flex-direction: column;
+              align-items: center;
+              padding: 10px;
+          }
+
+          .navbar ul {
+              flex-direction: column;
+              align-items: center;
+          }
+
+          .navbar ul li {
+              margin: 5px 0;
+          }
+
+          .form-container {
+              width: 80%;
+          }
+      }
+  </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="logo">Sign Language Detection</div>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/login">Login</a></li>
+        </ul>
+    </nav>
+    <h1 style="color: red;">Sign Language Detection</h1>
+    <!-- Sign-Up Form -->
+    <div class="form-container">
+        <h2>Sign Up</h2>
+        
+        <!-- Flash Messages -->
+        {% with messages = get_flashed_messages(with_categories=true) %}
+          {% if messages %}
+            <ul>
+            {% for category, message in messages %}
+              <li style="color: {% if category == 'danger' %}red{% else %}green{% endif %};">
+                {{ message }}
+              </li>
+            {% endfor %}
+            </ul>
+          {% endif %}
+        {% endwith %}
+
+        <!-- Form -->
+        <form method="POST" action="/signup">
+            <label>Username:</label>
+            <input type="text" name="username" required>
+
+            <label>Email:</label>
+            <input type="email" name="email" required>
+
+            <label>Password:</label>
+            <input type="password" name="password" required>
+
+            <button type="submit">Sign Up</button>
+        </form>
+
+        <p style="color:blue;">Already registered? <a href="/login">Log In</a></p>
+    </div>
+
+</body>
+</html>

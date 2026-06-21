@@ -1,0 +1,13 @@
+train: ../train/images
+val: ../valid/images
+test: ../test/images
+
+nc: 40
+names: ['After', 'Again', 'Against', 'Age', 'All', 'Also', 'And', 'Ask', 'At', 'Eat', 'Engineer', 'Fight', 'From', 'Glitter', 'Go', 'God', 'Good', 'Great', 'Happy', 'Her', 'His', 'Home', 'Invent', 'Language', 'Learn', 'Me', 'Word', 'Work', 'You', 'finish', 'hand', 'what', 'when', 'where', 'which', 'whole', 'whose', 'why', 'will', 'with']
+
+roboflow:
+  workspace: bnm-3bjls
+  project: cognisign
+  version: 2
+  license: CC BY 4.0
+  url: https://universe.roboflow.com/bnm-3bjls/cognisign/dataset/2

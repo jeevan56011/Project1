@@ -1,0 +1,29 @@
+# Python virtual environments
+.venv/
+venv/
+ENV/
+env/
+*.pyc
+__pycache__/
+.ipynb_checkpoints/
+
+# Database files
+*.db
+*.sqlite3
+
+# Local application uploads, results, and training runs
+SIGN_LANGUAGE_MAIN_CODE/uploads/
+SIGN_LANGUAGE_MAIN_CODE/results/
+SIGN_LANGUAGE_MAIN_CODE/runs/
+
+# Large videos and compressed archives
+*.mov
+*.mp4
+*.zip
+*.rar
+*.tar.gz
+
+# Roboflow datasets (hosted on Roboflow, too large for git)
+SIGN_LANGUAGE_MAIN_CODE/train/
+SIGN_LANGUAGE_MAIN_CODE/valid/
+SIGN_LANGUAGE_MAIN_CODE/test/
