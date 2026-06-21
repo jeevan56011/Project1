@@ -1,3 +1,13 @@
+---
+title: Sign Language Detection
+emoji: 🤟
+colorFrom: blue
+colorTo: indigo
+sdk: docker
+app_port: 7860
+pinned: false
+---
+
 # Sign Language Detection & Recognition System
 
 An end-to-end Computer Vision and Web application designed to recognize and translate sign language in real-time. Built using **Flask** for the web interface, **YOLOv8** (You Only Look Once) for object detection, and **SQLite** for user authentication and management.
